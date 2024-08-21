@@ -1,0 +1,22 @@
+{
+  "name": "my-playwright-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "OLT2000 <olliethurston1@gmail.com>",
+  "license": "MIT",
+  "packageManager": "yarn@4.4.0",
+  "devDependencies": {
+    "@playwright/test": "^1.46.1",
+    "@types/node": "^22.4.1",
+    "playwright": "^1.46.1",
+    "typescript": "^5.5.4"
+  },
+  "scripts": {
+    "chromium-test": "playwright test --project chromium --headed",
+    "firefox-test": "playwright test --project firefox --headed",
+    "msedge-test": "playwright test --project MicrosoftEdge --headed",
+    "mobilechrome-test": "playwright test --project MobileChrome --headed",
+    "mobilesafari-test": "playwright test --project MobileSafari --headed",
+    "webkit-test": "playwright test --project webkit --headed"
+  }
+}
