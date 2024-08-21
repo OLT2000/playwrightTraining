@@ -1,6 +1,7 @@
 import { Page } from 'playwright';
 import {expect} from "@playwright/test";
 import summaryPage_content from "../content/summaryPage_content";
+import axeTest from "../axeTesthelper";
 
 class SummaryPage {
     private readonly title: string;
@@ -17,6 +18,7 @@ class SummaryPage {
             expect(page.locator(this.title)).toContainText(summaryPage_content.pageTitle),
             expect(page.locator(this.text)).toContainText(summaryPage_content.divText),
         ]);
+        await axeTest(page);
     }
 }
 

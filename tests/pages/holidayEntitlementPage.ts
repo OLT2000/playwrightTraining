@@ -1,6 +1,7 @@
 import { Page } from 'playwright';
 import {expect} from "@playwright/test";
 import holidayEntitlement_content from "../content/holidayEntitlement_content";
+import axeTest from "../axeTesthelper";
 
 class HolidayEntitlementPage {
     private readonly title: string;
@@ -35,7 +36,8 @@ class HolidayEntitlementPage {
                 expect(page.locator(this.radio3)).toHaveText(holidayEntitlement_content.radio3),
                 expect(page.locator(this.radio4)).toHaveText(holidayEntitlement_content.radio4),
             ]
-        )
+        );
+        await axeTest(page);
     }
 
     async selectDaysContinueOn(page: Page): Promise<void> {

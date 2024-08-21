@@ -1,6 +1,7 @@
 import { Page } from 'playwright';
 import {expect} from "@playwright/test";
 import numberOfDays_content from "../content/numberOfDays_content";
+import axeTest from "../axeTesthelper";
 
 class NumberOfDaysPage {
     private readonly title: string;
@@ -22,7 +23,8 @@ class NumberOfDaysPage {
                 expect(page.locator(this.caption)).toHaveText(numberOfDays_content.pageCaption),
                 expect(page.locator(this.pageHint)).toHaveText(numberOfDays_content.pageHint),
             ]
-        )
+        );
+        await axeTest(page);
     }
 
     async fill5ContinueOn(page: Page): Promise<void> {

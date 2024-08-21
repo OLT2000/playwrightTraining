@@ -1,6 +1,7 @@
 import { Page } from 'playwright';
 import {expect} from "@playwright/test";
 import irregularHoursPage_content from "../content/irregularHoursPage_content";
+import axeTest from "../axeTesthelper";
 
 class IrregularHoursPage {
     private readonly title: string;
@@ -24,6 +25,7 @@ class IrregularHoursPage {
                 expect(page.locator(this.radioYes)).toHaveText(irregularHoursPage_content.radioYes),
                 expect(page.locator(this.radioNo)).toContainText(irregularHoursPage_content.radioNo),
             ]);
+        await axeTest(page);
     }
 
     async clickNoContinueOn(page: Page): Promise<void> {

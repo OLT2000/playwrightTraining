@@ -1,6 +1,7 @@
 import { Page } from 'playwright';
 import {expect} from "@playwright/test";
 import wantToWorkOut_content from "../content/wantToWorkOut_content";
+import axeTest from "../axeTesthelper";
 
 class WantToWorkOutPage {
     private readonly title: string;
@@ -29,7 +30,8 @@ class WantToWorkOutPage {
                 expect(page.locator(this.radioLeavePart)).toHaveText(wantToWorkOut_content.radioLeavePart),
                 expect(page.locator(this.radioStartLeavePart)).toHaveText(wantToWorkOut_content.radioStartLeavePart),
             ]
-        )
+        );
+        await axeTest(page);
     }
 
     async selectFullYearContinueOn(page: Page): Promise<void> {
