@@ -39,7 +39,7 @@ class HolidayEntitlementPage {
     }
 
     async selectDaysContinueOn(page: Page): Promise<void> {
-        await page.click(this.radio1);
+        await page.click(this.radio0);
         await page.getByRole("button", { name: "Continue" }).click();
     }
 }

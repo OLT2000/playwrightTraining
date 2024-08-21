@@ -3,6 +3,8 @@ import LandingPage from "./pages/landingPage";
 import IrregularHoursPage from "./pages/irregularHoursPage";
 import HolidayEntitlementPage from "./pages/holidayEntitlementPage";
 import WantToWorkOutPage from "./pages/wantToWorkOutPage";
+import NumberOfDaysPage from "./pages/numberOfDaysPage";
+import SummaryPage from "./pages/summaryPage";
 
 test('POM Happy Path', async ({page}) => {
     const landingPage: landingPage = new LandingPage();
@@ -20,4 +22,12 @@ test('POM Happy Path', async ({page}) => {
     const wantToWorkOutPage: wantToWorkOutPage = new WantToWorkOutPage();
     await wantToWorkOutPage.checkPageLoads(page);
     await wantToWorkOutPage.selectFullYearContinueOn(page);
+
+    const numberOfDays: numberOfDays = new NumberOfDaysPage();
+    await numberOfDays.checkPageLoads(page);
+    await numberOfDays.fill5ContinueOn(page);
+
+    const summaryPage: summaryPage = new SummaryPage();
+    await summaryPage.checkPageLoads(page);
+
 });
