@@ -29,5 +29,9 @@ test('POM Happy Path', async ({page}) => {
 
     const summaryPage: summaryPage = new SummaryPage();
     await summaryPage.checkPageLoads(page);
+    await summaryPage.verifyCorrectOutput(
+        page,
+        "28 days"
+    )
 
 });

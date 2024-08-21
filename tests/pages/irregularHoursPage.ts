@@ -2,18 +2,21 @@ import { Page } from 'playwright';
 import {expect} from "@playwright/test";
 import irregularHoursPage_content from "../content/irregularHoursPage_content";
 import axeTest from "../axeTesthelper";
+import holidayEntitlement_content from "../content/holidayEntitlement_content";
+import radioSelectAndContinue from "../radioSelectAndContinue";
 
 class IrregularHoursPage {
     private readonly title: string;
     private readonly hint: string;
-    private readonly radioYes: string;
-    private readonly radioNo: string;
+    private readonly radio_options: { [key: string]: string }
 
     constructor() {
         this.title = `.govuk-fieldset__heading`;
         this.hint = `.govuk-hint`;
-        this.radioYes = `label[for="response-0"]`;
-        this.radioNo = `label[for="response-1"]`;
+        this.radio_options = {
+            "Yes": `label[for="response-0"]`,
+            "No": `label[for="response-1"]`
+        }
     }
 
     async checkPageLoads(page: Page): Promise<void> {
@@ -22,10 +25,21 @@ class IrregularHoursPage {
             [
                 expect(page.locator(this.title)).toHaveText(irregularHoursPage_content.pTitle),
                 expect(page.locator(this.hint)).toHaveText(irregularHoursPage_content.pHint),
-                expect(page.locator(this.radioYes)).toHaveText(irregularHoursPage_content.radioYes),
-                expect(page.locator(this.radioNo)).toContainText(irregularHoursPage_content.radioNo),
             ]);
+
+        for (let value of irregularHoursPage_content.radio_options) {
+            await expect(page.locator(this.radio_options[value])).toHaveText(value);
+        }
+
         await axeTest(page);
+    }
+
+    async selectIrregularAndContinueOn(page: Page, selection: string): Promise<void> {
+        await radioSelectAndContinue(
+            page,
+            this.radio_options,
+            selection
+        );
     }
 
     async clickNoContinueOn(page: Page): Promise<void> {

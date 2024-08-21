@@ -9,16 +9,22 @@ class SummaryPage {
 
     constructor() {
         this.title = `.govuk-heading-xl`
-        this.text = `.summary`
+        this.text = `.govuk-govspeak`
     }
 
     async checkPageLoads(page: Page): Promise<void> {
         // Check elements of the page
         await Promise.all([
             expect(page.locator(this.title)).toContainText(summaryPage_content.pageTitle),
-            expect(page.locator(this.text)).toContainText(summaryPage_content.divText),
         ]);
         await axeTest(page);
+    }
+
+    async verifyCorrectOutput(
+        page: Page,
+        holiday_val: string
+    ): Promise<void> {
+        await expect(page.locator(this.text)).toContainText(holiday_val)
     }
 }
 
