@@ -1,13 +1,12 @@
 import { Page } from 'playwright';
 import {expect} from "@playwright/test";
-import whenDoesLeaveStart_content from "../content/whenDoesLeaveStart_content";
+import employmentEndDate_content from "../content/employmentEndDate_content";
 import axeTest from "../helpers/axeTesthelper";
 import inputFieldBooleanContinue from "../helpers/inputFieldBooleanContinue";
 
-class WhenDoesLeaveStart {
+class EmploymentEndDate {
     private readonly title: string;
     private readonly caption: string;
-    private readonly hint: string;
     private readonly dayLabel: string;
     private readonly monthLabel: string;
     private readonly yearLabel: string;
@@ -18,7 +17,6 @@ class WhenDoesLeaveStart {
     constructor() {
         this.title = `.govuk-fieldset__heading`;
         this.caption = `.govuk-caption-l`;
-        this.hint = `.govuk-hint`;
         this.dayLabel = `label[for="response-0"]`;
         this.monthLabel = `label[for="response-1"]`;
         this.yearLabel = `label[for="response-2"]`;
@@ -30,12 +28,11 @@ class WhenDoesLeaveStart {
     async checkPageLoads(page: Page): Promise<void> {
         await Promise.all(
             [
-                expect(page.locator(this.title)).toHaveText(whenDoesLeaveStart_content.pageTitle),
-                expect(page.locator(this.caption)).toHaveText(whenDoesLeaveStart_content.pageCaption),
-                expect(page.locator(this.hint)).toHaveText(whenDoesLeaveStart_content.pageHint),
-                expect(page.locator(this.dayLabel)).toHaveText(whenDoesLeaveStart_content.dayLabel),
-                expect(page.locator(this.monthLabel)).toHaveText(whenDoesLeaveStart_content.monthLabel),
-                expect(page.locator(this.yearLabel)).toHaveText(whenDoesLeaveStart_content.yearLabel),
+                expect(page.locator(this.title)).toHaveText(employmentEndDate_content.pageTitle),
+                expect(page.locator(this.caption)).toHaveText(employmentEndDate_content.pageCaption),
+                expect(page.locator(this.dayLabel)).toHaveText(employmentEndDate_content.dayLabel),
+                expect(page.locator(this.monthLabel)).toHaveText(employmentEndDate_content.monthLabel),
+                expect(page.locator(this.yearLabel)).toHaveText(employmentEndDate_content.yearLabel),
             ]
         );
         await axeTest(page);
@@ -70,4 +67,4 @@ class WhenDoesLeaveStart {
     }
 }
 
-export default WhenDoesLeaveStart;
+export default EmploymentEndDate;

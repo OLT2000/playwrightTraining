@@ -1,7 +1,7 @@
 import { Page } from 'playwright';
 import {expect} from "@playwright/test";
 import landingPage_content from "../content/landingPage_content";
-import axeTest from "../axeTesthelper";
+import axeTest from "../helpers/axeTesthelper";
 
 class LandingPage {
     private readonly url: string;

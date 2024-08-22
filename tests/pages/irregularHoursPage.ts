@@ -1,9 +1,8 @@
 import { Page } from 'playwright';
 import {expect} from "@playwright/test";
 import irregularHoursPage_content from "../content/irregularHoursPage_content";
-import axeTest from "../axeTesthelper";
-import holidayEntitlement_content from "../content/holidayEntitlement_content";
-import radioSelectAndContinue from "../radioSelectAndContinue";
+import axeTest from "../helpers/axeTesthelper";
+import radioSelectAndContinue from "../helpers/radioSelectAndContinue";
 
 class IrregularHoursPage {
     private readonly title: string;

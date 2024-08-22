@@ -1,6 +1,6 @@
 const wantToWorkOut_content = {
     pageCaption: "Calculate holiday entitlement",
-    pTitle: "Do you want to work out holiday:",
+    pTitle: /Do you want to (work out|calculate the) holiday:/,
     radioFullYear: "for a full leave year",
     radioStartPart: "for someone starting part way through a leave year",
     radioLeavePart: "for someone leaving part way through a leave year",

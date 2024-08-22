@@ -1,7 +1,7 @@
 import { Page } from 'playwright';
 import {expect} from "@playwright/test";
 import summaryPage_content from "../content/summaryPage_content";
-import axeTest from "../axeTesthelper";
+import axeTest from "../helpers/axeTesthelper";
 
 class SummaryPage {
     private readonly title: string;

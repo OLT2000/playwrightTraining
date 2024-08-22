@@ -1,9 +1,8 @@
 import { Page } from 'playwright';
 import {expect} from "@playwright/test";
 import wantToWorkOut_content from "../content/wantToWorkOut_content";
-import axeTest from "../axeTesthelper";
-import radioSelectAndContinue from "../radioSelectAndContinue";
-import holidayEntitlement_content from "../content/holidayEntitlement_content";
+import axeTest from "../helpers/axeTesthelper";
+import radioSelectAndContinue from "../helpers/radioSelectAndContinue";
 
 class WantToWorkOutPage {
     private readonly title: string;

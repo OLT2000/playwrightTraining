@@ -1,8 +1,8 @@
 import { Page } from 'playwright';
-import {expect, Locator} from "@playwright/test";
+import {expect} from "@playwright/test";
 import holidayEntitlement_content from "../content/holidayEntitlement_content";
-import axeTest from "../axeTesthelper";
-import radioSelectAndContinue from "../radioSelectAndContinue";
+import axeTest from "../helpers/axeTesthelper";
+import radioSelectAndContinue from "../helpers/radioSelectAndContinue";
 
 class HolidayEntitlementPage {
     private readonly title: string;
